@@ -81,6 +81,10 @@ body{font-family:'Cairo','Tajawal','Segoe UI',Tahoma,sans-serif; background:var(
 .askbox .al{font-size:12px; font-weight:800; color:var(--maroon)}
 .askbox .as{font-size:11.5px; color:var(--muted); font-weight:600; margin-top:2px}
 .askbox .av{font-size:22px; font-weight:800; color:var(--maroon); direction:ltr; font-variant-numeric:tabular-nums}
+.askbox.credit{border-color:#bfe3d0; background:var(--greenbg)}
+.askbox.credit .al,.askbox.credit .av{color:var(--green)}
+.askbox.zero{border-color:var(--line); background:#f7f8fb}
+.askbox.zero .al,.askbox.zero .av{color:var(--navy)}
 .newwrap{border:1.5px solid #f0d9a6; background:linear-gradient(180deg,#fffdf7,#fffaf0); border-radius:12px; padding:13px 14px; margin-bottom:11px}
 .newhdr{display:flex; align-items:center; gap:9px; margin-bottom:11px}
 .newhdr .tag{background:var(--gold); color:#3a2c00; font-weight:800; font-size:11px; padding:3px 10px; border-radius:20px}
@@ -106,8 +110,16 @@ table{width:100%; border-collapse:collapse}
 .balbox .row.result{background:#fff7f9; border-bottom:0}
 .balbox .row.result .lab{color:var(--maroon); font-weight:800; font-size:14px}
 .balbox .row.result .n{color:var(--maroon); font-size:16px}
-.summary{background:var(--greenbg); border:1px solid #bfe3d0; border-radius:10px; padding:11px 14px; font-size:13px; font-weight:700; color:#155e3c; margin-top:12px}
-.summary .big{color:var(--maroon); direction:ltr; font-weight:800; font-variant-numeric:tabular-nums}
+.balbox .row.result.credit{background:var(--greenbg)}
+.balbox .row.result.credit .lab,.balbox .row.result.credit .n{color:var(--green)}
+.summary{border-radius:10px; padding:11px 14px; font-size:13px; font-weight:700; margin-top:12px}
+.summary .big{direction:ltr; font-weight:800; font-variant-numeric:tabular-nums}
+.summary.due{background:#fff7f9; border:1px solid #f0cfd8; color:#7a1d35}
+.summary.due .big{color:var(--maroon)}
+.summary.credit{background:var(--greenbg); border:1px solid #bfe3d0; color:#155e3c}
+.summary.credit .big{color:var(--green)}
+.summary.zero{background:#f7f8fb; border:1px solid var(--line); color:var(--navy)}
+.summary.zero .big{color:var(--navy)}
 .foot{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-top:14px; padding-top:12px; border-top:2px solid var(--navy)}
 .sign{text-align:center; font-size:12px}
 .sign .name{font-weight:800; color:var(--navy); margin-top:2px}
@@ -345,6 +357,16 @@ function render(data,mode){
 
   const pExp=pSpent+pDue;
   const totExp=pExp+sumNewSt+dDue; /* spent + due — السابق يشمل العمولة السابقة */
+  const net=recv-totExp; /* سالب = طلب على المستفيد · موجب = باقي لدى الشركة */
+  const absNet=Math.abs(net);
+  const netKind=net<0?'due':net>0?'credit':'zero';
+  const netTitle=net<0?'طلب على المستفيد':net>0?'باقي لدى الشركة':'الحساب متوازن';
+  const netFormula=net<0
+    ? `إجمالي المصاريف أكبر من المدفوع لغاية ${S.repDate}`
+    : net>0
+      ? `إجمالي المدفوع أكبر من المصاريف لغاية ${S.repDate}`
+      : `إجمالي المدفوع يساوي إجمالي المصاريف لغاية ${S.repDate}`;
+  const netSigned=(net<0?'−':net>0?'+':'')+fmt(absNet);
   document.getElementById('kpis').innerHTML=`
     <div class="kpi-group pay">
       <div class="gh"><span>الدفعات</span><span class="eq">السابق + الجديد = الإجمالي</span></div>
@@ -363,12 +385,12 @@ function render(data,mode){
         <div class="kpi total"><div class="lbl">إجمالي المصاريف</div><div class="val">${fmt(totExp)}</div><div class="unit">دينار عراقي · شامل الاستحقاق التراكمي</div></div>
       </div>
     </div>
-    <div class="askbox">
+    <div class="askbox ${netKind}">
       <div>
-        <div class="al">الطلب — المتبقي على المستفيد لشركة نهج الرافدين</div>
-        <div class="as">إجمالي المصاريف − إجمالي المدفوع لغاية ${S.repDate}</div>
+        <div class="al">${netTitle}</div>
+        <div class="as">${netFormula}</div>
       </div>
-      <div class="av">${fmt(baqi)}</div>
+      <div class="av">${netSigned}</div>
     </div>`;
 
   const rowsPay=newPay.length?newPay.map(p=>`<tr><td class="idx">${p.n}</td><td>${p.date||'—'}</td><td>${p.note||'—'}</td><td class="num">${fmt(p.amt)}</td></tr>`).join('')
@@ -385,17 +407,21 @@ function render(data,mode){
         <table><tr><th>رقم الكشف</th><th>قيمة الكشف (د.ع)</th><th>التراكمي (د.ع)</th></tr>${rowsSt}</table></div>
     </div>`;
 
-  const neg=result<0;
   document.getElementById('balbox').innerHTML=`
     <div class="bh">الموازنة الختامية</div>
     <div class="row"><span class="lab">مجموع الدفعات المستلمة من المستفيد</span><span class="n">${fmt(recv)}</span></div>
     <div class="row"><span class="lab"><span class="op">(−)</span>مجموع المبالغ المصروفة على العمل</span><span class="n">${fmt(spent)}</span></div>
     <div class="row"><span class="lab"><span class="op">(−)</span>استحقاق الشركة المنفذة ${S.rate}%</span><span class="n">${fmt(due)}</span></div>
-    <div class="row result"><span class="lab">الناتج</span><span class="n">${neg?'('+fmt(Math.abs(result))+'−)':fmt(result)}</span></div>`;
+    <div class="row result ${netKind}"><span class="lab">${netTitle}</span><span class="n">${netSigned}</span></div>`;
 
-  const words=tafqit(baqi);
-  document.getElementById('summary').innerHTML=
-    `الخلاصة: المتبقي على المستفيد لشركة نهج الرافدين لغاية إعداد هذا الملخص هو <span class="big">${fmt(baqi)}</span> دينار عراقي (${words} دينار عراقي).`;
+  const words=tafqit(absNet);
+  const sumEl=document.getElementById('summary');
+  sumEl.className='summary '+netKind;
+  sumEl.innerHTML=net===0
+    ? `الخلاصة: الحساب متوازن لغاية إعداد هذا الملخص.`
+    : net<0
+      ? `الخلاصة: يوجد <b>طلب على المستفيد</b> لصالح شركة نهج الرافدين بمبلغ <span class="big">${fmt(absNet)}</span> دينار عراقي (${words} دينار عراقي).`
+      : `الخلاصة: يوجد <b>باقي لدى الشركة</b> لصالح المستفيد بمبلغ <span class="big">${fmt(absNet)}</span> دينار عراقي (${words} دينار عراقي).`;
 }
 
 document.getElementById('btnRefresh').addEventListener('click',load);
