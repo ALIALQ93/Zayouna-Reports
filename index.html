@@ -32,7 +32,7 @@ body{font-family:'Cairo','Tajawal','Segoe UI',Tahoma,sans-serif; background:var(
 .btn.alt{background:#fff; color:var(--navy); border:1.5px solid var(--navy)}
 .btn.alt:hover{background:#eef1fb}
 .page{width:210mm; min-height:297mm; margin:0 auto; background:#fff;
-  box-shadow:0 6px 28px rgba(20,30,70,.14); border-radius:6px; overflow:hidden;
+  box-shadow:0 6px 28px rgba(20,30,70,.14); border-radius:6px; overflow:visible;
   padding:12mm 15mm 10mm; position:relative}
 .wm{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   opacity:.035; pointer-events:none}
@@ -88,12 +88,12 @@ body{font-family:'Cairo','Tajawal','Segoe UI',Tahoma,sans-serif; background:var(
 .askbox.zero{border-color:var(--line); background:#f7f8fb}
 .askbox.zero .al,.askbox.zero .av{color:var(--navy)}
 .newwrap{border:1.5px solid #f0d9a6; background:linear-gradient(180deg,#fffdf7,#fffaf0); border-radius:12px; padding:13px 14px; margin-bottom:11px}
-.newhdr{display:flex; align-items:center; gap:9px; margin-bottom:11px}
+.newhdr{display:flex; align-items:center; gap:9px; margin-bottom:11px; flex-wrap:wrap}
 .newhdr .tag{background:var(--gold); color:#3a2c00; font-weight:800; font-size:11px; padding:3px 10px; border-radius:20px}
 .newhdr h3{font-size:14px; color:var(--amber)}
 .newhdr .cmp{margin-inline-start:auto; font-size:11px; color:var(--muted); font-weight:600}
-.newgrid{display:grid; grid-template-columns:1fr 1fr; gap:13px}
-.ntab{background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.newgrid{display:flex; flex-direction:column; gap:10px}
+.ntab{background:#fff; border:1px solid var(--line); border-radius:10px; overflow:visible}
 .ntab .cap{background:#f6f8fc; font-size:12px; font-weight:800; color:var(--navy); padding:8px 11px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between}
 .ntab .cap .sum{color:var(--green); direction:ltr; font-variant-numeric:tabular-nums; text-align:left}
 .ntab .cap .sum .usd{display:block; color:#1a5f7a; font-size:11px}
@@ -136,12 +136,12 @@ table{width:100%; border-collapse:collapse}
 .source b{color:var(--navy)}
 @page{size:A4 portrait; margin:0}
 @media print{
-  html,body{background:#fff; padding:0; margin:0; height:auto; overflow:hidden}
+  html,body{background:#fff; padding:0; margin:0; height:auto; overflow:visible}
   .toolbar{display:none!important}
   .page{
-    width:210mm; height:297mm; min-height:297mm; max-height:297mm;
+    width:210mm; height:auto; min-height:297mm; max-height:none;
     margin:0; padding:7mm 10mm 6mm; box-shadow:none; border-radius:0;
-    overflow:hidden; line-height:1.32;
+    overflow:visible; line-height:1.32;
   }
   .head{padding-bottom:6px; gap:8px; border-bottom-width:2px}
   .head .co .ar{font-size:18px}
@@ -170,9 +170,10 @@ table{width:100%; border-collapse:collapse}
   .newhdr h3{font-size:12.5px}
   .newhdr .tag{font-size:10px; padding:2px 8px}
   .newhdr .cmp{font-size:10px}
-  .newgrid{gap:8px}
+  .newgrid{gap:6px}
   .ntab .cap{padding:4px 8px; font-size:11px}
-  .ntab td,.ntab th{padding:3px 8px; font-size:11px}
+  .ntab td,.ntab th{padding:3px 7px; font-size:10.5px}
+  .ntab{overflow:visible; break-inside:avoid}
   .balbox{margin-bottom:7px}
   .balbox .bh{padding:5px 10px; font-size:12px}
   .balbox .row{padding:4px 10px; font-size:12px}
