@@ -71,11 +71,13 @@ body{font-family:'Cairo','Tajawal','Segoe UI',Tahoma,sans-serif; background:var(
 .kpi .lbl{font-size:11.5px; color:var(--muted); font-weight:700; margin-bottom:6px}
 .kpi .val{font-size:18px; font-weight:800; color:var(--navy); direction:ltr; text-align:right; font-variant-numeric:tabular-nums}
 .kpi .unit{font-size:11px; color:var(--muted); font-weight:600}
+.kpi .usd{margin-top:3px; font-size:13px; font-weight:800; color:#1a5f7a; direction:ltr; text-align:right; font-variant-numeric:tabular-nums}
 .kpi.new .val{color:var(--green)}
 .kpi.fee .val{color:var(--amber)}
 .kpi.total{background:#f4f7fb}
 .kpi.total .val{color:var(--navy)}
 .kpi.total .lbl{color:var(--navy)}
+.askgrid{display:grid; grid-template-columns:1fr 1fr; gap:8px}
 .askbox{border:1px solid #f0cfd8; border-radius:12px; background:#fff7f9; padding:12px 16px;
   display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
 .askbox .al{font-size:12px; font-weight:800; color:var(--maroon)}
@@ -93,7 +95,8 @@ body{font-family:'Cairo','Tajawal','Segoe UI',Tahoma,sans-serif; background:var(
 .newgrid{display:grid; grid-template-columns:1fr 1fr; gap:13px}
 .ntab{background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden}
 .ntab .cap{background:#f6f8fc; font-size:12px; font-weight:800; color:var(--navy); padding:8px 11px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between}
-.ntab .cap .sum{color:var(--green); direction:ltr; font-variant-numeric:tabular-nums}
+.ntab .cap .sum{color:var(--green); direction:ltr; font-variant-numeric:tabular-nums; text-align:left}
+.ntab .cap .sum .usd{display:block; color:#1a5f7a; font-size:11px}
 table{width:100%; border-collapse:collapse}
 .ntab td,.ntab th{padding:7px 11px; font-size:12px; text-align:right; border-bottom:1px solid #f1f3f8}
 .ntab th{color:var(--muted); font-weight:700; font-size:11px; background:#fbfcfe}
@@ -107,6 +110,8 @@ table{width:100%; border-collapse:collapse}
 .balbox .row .lab{font-weight:600}
 .balbox .row .op{color:var(--muted); font-weight:700; margin-inline-end:6px}
 .balbox .row .n{direction:ltr; font-weight:800; font-variant-numeric:tabular-nums; color:var(--ink)}
+.balbox .row .nums{display:flex; flex-direction:column; align-items:flex-end; gap:2px}
+.balbox .row .n.usd{color:#1a5f7a; font-size:12px}
 .balbox .row.result{background:#fff7f9; border-bottom:0}
 .balbox .row.result .lab{color:var(--maroon); font-weight:800; font-size:14px}
 .balbox .row.result .n{color:var(--maroon); font-size:16px}
@@ -120,6 +125,9 @@ table{width:100%; border-collapse:collapse}
 .summary.credit .big{color:var(--green)}
 .summary.zero{background:#f7f8fb; border:1px solid var(--line); color:var(--navy)}
 .summary.zero .big{color:var(--navy)}
+.summary.mixed{background:#f7f8fb; border:1px solid var(--line); color:var(--ink)}
+.summary .line{margin-top:4px}
+.summary .line:first-child{margin-top:0}
 .foot{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-top:14px; padding-top:12px; border-top:2px solid var(--navy)}
 .sign{text-align:center; font-size:12px}
 .sign .name{font-weight:800; color:var(--navy); margin-top:2px}
@@ -151,6 +159,8 @@ table{width:100%; border-collapse:collapse}
   .kpi .lbl{font-size:10px; margin-bottom:2px}
   .kpi .val{font-size:14px}
   .kpi .unit{font-size:9.5px}
+  .kpi .usd{font-size:11px; margin-top:1px}
+  .askgrid{gap:6px}
   .askbox{padding:7px 12px}
   .askbox .al{font-size:11px}
   .askbox .as{font-size:10px; margin-top:1px}
@@ -224,7 +234,13 @@ table{width:100%; border-collapse:collapse}
 const SHEET_ID="1gyJab7BuHr3m4unY0_1rVShyckRAzaTZmVp3_jNV0DE";
 const SNAP={"payments": [{"n": 1, "date": "2024/10/3", "amt": 25000000, "note": "نقد / حوالة"}, {"n": 2, "date": "2024/10/22", "amt": 25000000, "note": "نقد / حوالة"}, {"n": 3, "date": "2024/11/19", "amt": 15000000, "note": "نقد / حوالة"}, {"n": 4, "date": "2024/12/9", "amt": 30000000, "note": "نقد / حوالة"}, {"n": 5, "date": "2024/12/30", "amt": 20000000, "note": "نقد / حوالة"}, {"n": 6, "date": "2025/1/20", "amt": 30000000, "note": "نقد / حوالة"}, {"n": 7, "date": "2025/1/30", "amt": 50000000, "note": "نقد / حوالة"}, {"n": 8, "date": "2025/2/13", "amt": 50000000, "note": "نقد / حوالة"}, {"n": 9, "date": "2025/3/2", "amt": 50000000, "note": "نقد / حوالة"}, {"n": 10, "date": "2025/3/25", "amt": 25000000, "note": "نقد / حوالة"}, {"n": 11, "date": "2025/4/15", "amt": 50000000, "note": "نقد / حوالة"}, {"n": 12, "date": "2025/4/27", "amt": 50000000, "note": "نقد"}, {"n": 13, "date": "2025/5/14", "amt": 50000000, "note": "نقد / حوالة"}, {"n": 14, "date": "2025/8/16", "amt": 30000000, "note": "نقد"}, {"n": 15, "date": "2025/8/26", "amt": 30000000, "note": "نقد"}, {"n": 16, "date": "2025/9/17", "amt": 50000000, "note": "نقد"}, {"n": 17, "date": "2025/10/19", "amt": 25000000, "note": "نقد"}, {"n": 18, "date": "2025/12/4", "amt": 25000000, "note": "نقد"}, {"n": 19, "date": "2025/12/10", "amt": 50000000, "note": "نقد"}, {"n": 20, "date": "2026/2/3", "amt": 75000000, "note": "نقد"}, {"n": 21, "date": "2026/3/10", "amt": 176000000, "note": "نقد"}, {"n": 22, "date": "2026/4/6", "amt": 50000000, "note": "نقد"}, {"n": 23, "date": "2026/4/23", "amt": 50000000, "note": "نقد"}, {"n": 24, "date": "2026/5/18", "amt": 50000000, "note": "نقد"}, {"n": 25, "date": "2026/7/5", "amt": 30000000, "note": "نقد"}, {"n": 26, "date": "2026/7/16", "amt": 25000000, "note": "نقد"}, {"n": 27, "date": "2026/7/26", "amt": 25000000, "note": "نقد"}, {"n": 28, "date": "2026/7/27", "amt": 30000000, "note": "نقد"}, {"n": 29, "date": "2026/8/10", "amt": 40000000, "note": "نقد"}, {"n": 30, "date": "2026/8/15", "amt": 25000000, "note": "نقد"}], "statements": [{"n": 1, "date": "", "amt": 975000}, {"n": 2, "date": "", "amt": 19112000}, {"n": 3, "date": "", "amt": 2000000}, {"n": 4, "date": "", "amt": 350000}, {"n": 5, "date": "", "amt": 2161000}, {"n": 6, "date": "", "amt": 9000000}, {"n": 7, "date": "", "amt": 175000}, {"n": 8, "date": "", "amt": 3126000}, {"n": 9, "date": "", "amt": 2960000}, {"n": 10, "date": "", "amt": 1803000}, {"n": 11, "date": "", "amt": 1040000}, {"n": 12, "date": "", "amt": 188500}, {"n": 13, "date": "", "amt": 405000}, {"n": 14, "date": "", "amt": 7790000}, {"n": 15, "date": "", "amt": 8939000}, {"n": 16, "date": "", "amt": 4694000}, {"n": 17, "date": "", "amt": 3886000}, {"n": 18, "date": "", "amt": 550000}, {"n": 19, "date": "", "amt": 430000}, {"n": 20, "date": "", "amt": 1120000}, {"n": 21, "date": "", "amt": 2044000}, {"n": 22, "date": "", "amt": 200000}, {"n": 23, "date": "", "amt": 560000}, {"n": 24, "date": "", "amt": 4065000}, {"n": 25, "date": "", "amt": 9992500}, {"n": 26, "date": "", "amt": 11990000}, {"n": 27, "date": "", "amt": 7473000}, {"n": 28, "date": "", "amt": 23590000}, {"n": 29, "date": "", "amt": 7384000}, {"n": 30, "date": "", "amt": 12672000}, {"n": 31, "date": "", "amt": 533000}, {"n": 32, "date": "", "amt": 7760250}, {"n": 33, "date": "", "amt": 12478000}, {"n": 34, "date": "", "amt": 10070000}, {"n": 35, "date": "", "amt": 27356000}, {"n": 36, "date": "", "amt": 704000}, {"n": 37, "date": "", "amt": 5557000}, {"n": 38, "date": "", "amt": 14522000}, {"n": 39, "date": "", "amt": 10472000}, {"n": 40, "date": "", "amt": 11472000}, {"n": 41, "date": "", "amt": 15241000}, {"n": 42, "date": "", "amt": 1665000}, {"n": 43, "date": "", "amt": 9171000}, {"n": 44, "date": "", "amt": 7353500}, {"n": 45, "date": "", "amt": 12080000}, {"n": 46, "date": "", "amt": 23920000}, {"n": 47, "date": "", "amt": 155000}, {"n": 48, "date": "", "amt": 781500}, {"n": 49, "date": "", "amt": 10370000}, {"n": 50, "date": "", "amt": 9328000}, {"n": 51, "date": "", "amt": 12010000}, {"n": 52, "date": "", "amt": 3175000}, {"n": 53, "date": "", "amt": 8657000}, {"n": 54, "date": "", "amt": 12626000}, {"n": 55, "date": "", "amt": 1073750}, {"n": 56, "date": "", "amt": 2268500}, {"n": 57, "date": "", "amt": 10575000}, {"n": 58, "date": "", "amt": 5756000}, {"n": 59, "date": "", "amt": 13190000}, {"n": 60, "date": "", "amt": 2185000}, {"n": 61, "date": "", "amt": 3256000}, {"n": 62, "date": "", "amt": 2766000}, {"n": 63, "date": "", "amt": 17240000}, {"n": 64, "date": "", "amt": 1274000}, {"n": 65, "date": "", "amt": 160000}, {"n": 66, "date": "", "amt": 108000}, {"n": 67, "date": "", "amt": 1475000}, {"n": 68, "date": "", "amt": 10460000}, {"n": 69, "date": "", "amt": 5440000}, {"n": 70, "date": "", "amt": 7405000}, {"n": 71, "date": "", "amt": 973000}, {"n": 72, "date": "", "amt": 11968000}, {"n": 73, "date": "", "amt": 21235000}, {"n": 74, "date": "", "amt": 645500}, {"n": 75, "date": "", "amt": 8535000}, {"n": 76, "date": "", "amt": 6437000}, {"n": 77, "date": "", "amt": 255000}, {"n": 78, "date": "", "amt": 5146000}, {"n": 79, "date": "", "amt": 3015750}, {"n": 80, "date": "", "amt": 10289000}, {"n": 81, "date": "", "amt": 255000}, {"n": 82, "date": "", "amt": 1768500}, {"n": 83, "date": "", "amt": 6688000}, {"n": 84, "date": "", "amt": 727500}, {"n": 85, "date": "", "amt": 279000}, {"n": 86, "date": "", "amt": 13540000}, {"n": 87, "date": "", "amt": 13650000}, {"n": 88, "date": "", "amt": 5000000}, {"n": 89, "date": "", "amt": 8059500}, {"n": 90, "date": "", "amt": 5000000}, {"n": 91, "date": "", "amt": 5253000}, {"n": 92, "date": "", "amt": 2500000}, {"n": 93, "date": "", "amt": 922500}, {"n": 94, "date": "", "amt": 2500000}, {"n": 95, "date": "", "amt": 29535000}, {"n": 96, "date": "", "amt": 2479000}, {"n": 97, "date": "", "amt": 934000}, {"n": 98, "date": "", "amt": 11176000}, {"n": 99, "date": "", "amt": 17350000}, {"n": 100, "date": "", "amt": 1443000}, {"n": 101, "date": "", "amt": 990000}, {"n": 102, "date": "", "amt": 616000}, {"n": 103, "date": "", "amt": 6043000}, {"n": 104, "date": "", "amt": 2990000}, {"n": 105, "date": "", "amt": 5000000}, {"n": 106, "date": "", "amt": 1760000}, {"n": 107, "date": "", "amt": 5000000}, {"n": 108, "date": "", "amt": 15773000}, {"n": 109, "date": "", "amt": 2911000}, {"n": 110, "date": "", "amt": 14759500}, {"n": 111, "date": "", "amt": 2504000}, {"n": 112, "date": "", "amt": 4500000}, {"n": 113, "date": "", "amt": 4677000}, {"n": 114, "date": "", "amt": 46400000}, {"n": 115, "date": "", "amt": 55996000}, {"n": 116, "date": "", "amt": 12018000}, {"n": 117, "date": "", "amt": 9335000}, {"n": 118, "date": "", "amt": 9106000}, {"n": 119, "date": "", "amt": 1124000}, {"n": 120, "date": "", "amt": 6688000}, {"n": 121, "date": "", "amt": 465000}, {"n": 122, "date": "", "amt": 7493500}, {"n": 123, "date": "", "amt": 2575000}, {"n": 124, "date": "", "amt": 9028500}, {"n": 125, "date": "", "amt": 6149000}, {"n": 126, "date": "", "amt": 14042000}, {"n": 127, "date": "", "amt": 3649000}, {"n": 128, "date": "", "amt": 2000000}, {"n": 129, "date": "", "amt": 10191000}, {"n": 130, "date": "", "amt": 3200000}, {"n": 131, "date": "", "amt": 338000}, {"n": 132, "date": "", "amt": 3067500}, {"n": 133, "date": "", "amt": 13090000}, {"n": 134, "date": "", "amt": 15979000}, {"n": 135, "date": "", "amt": 14521000}, {"n": 136, "date": "", "amt": 10011000}, {"n": 137, "date": "", "amt": 3439000}, {"n": 138, "date": "", "amt": 995000}, {"n": 139, "date": "", "amt": 4500000}, {"n": 140, "date": "", "amt": 9739000}, {"n": 141, "date": "", "amt": 21164000}, {"n": 142, "date": "", "amt": 8438500}, {"n": 143, "date": "", "amt": 6638500}, {"n": 144, "date": "", "amt": 2910000}, {"n": 145, "date": "", "amt": 10061000}, {"n": 146, "date": "", "amt": 50707000}, {"n": 147, "date": "", "amt": 6225000}, {"n": 148, "date": "", "amt": 9941000}, {"n": 149, "date": "", "amt": 7060250}, {"n": 150, "date": "", "amt": 26376000}], "settings": {"repNo": "47", "repDate": "2026/8/17", "rate": "10", "prevRepNo": "46", "cutPay": "28", "cutKashf": "148", "prevDate": "2026/8/8"}};
 const fmt=(n)=>Math.round(n).toLocaleString('en-US');
+const fmtUsd=(n)=>{ const x=Math.round((Number(n)||0)*100)/100; return '$'+x.toLocaleString('en-US',{minimumFractionDigits:x%1?2:0, maximumFractionDigits:2}); };
 const toNum=(s)=>{ if(s==null) return 0; if(typeof s==='number') return s; const t=String(s).replace(/[^\d.-]/g,''); const v=parseFloat(t); return isNaN(v)?0:v; };
+function colIndex(table, preds, fallback){
+  const cols=(table.cols||[]).map(c=>String(c.label||''));
+  for(const pred of preds){ const i=cols.findIndex(pred); if(i>=0) return i; }
+  return fallback;
+}
 function asDate(v){
   if(v==null || v==='') return '';
   if(v instanceof Date && !isNaN(v.getTime()))
@@ -302,10 +318,22 @@ function readSettings(table){
   };
 }
 function readPayments(table){
-  return (table.rows||[]).map(r=>({n:toNum(cellV(r,0)),date:asDate(cellF(r,1)),amt:toNum(cellV(r,2)),note:String(cellV(r,3)||'').trim()})).filter(x=>x.n>0);
+  const usdI=colIndex(table,[c=>c.includes('$')||/دولار/.test(c)], -1);
+  const noteI=colIndex(table,[c=>/ملاحظ/.test(c)], usdI>=0?4:3);
+  const amtI=colIndex(table,[c=>c.includes('د.ع')||/دينار/.test(c)], 2);
+  return (table.rows||[]).map(r=>({
+    n:toNum(cellV(r,0)), date:asDate(cellF(r,1)),
+    amt:toNum(cellV(r,amtI)), usd:usdI>=0?toNum(cellV(r,usdI)):0,
+    note:String(cellV(r,noteI)||'').trim()
+  })).filter(x=>x.n>0);
 }
 function readStatements(table){
-  return (table.rows||[]).map(r=>({n:toNum(cellV(r,0)),date:asDate(cellF(r,1)),amt:toNum(cellV(r,2))})).filter(x=>x.n>0);
+  const amtI=colIndex(table,[c=>c.includes('قيمة الكشف (د.ع)')||(c.includes('د.ع')&&c.includes('قيمة'))], 2);
+  const usdI=colIndex(table,[c=>c.includes('قيمة الكشف ($)')||(c.includes('$')&&c.includes('قيمة'))], -1);
+  return (table.rows||[]).map(r=>({
+    n:toNum(cellV(r,0)), date:asDate(cellF(r,1)),
+    amt:toNum(cellV(r,amtI)), usd:usdI>=0?toNum(cellV(r,usdI)):0
+  })).filter(x=>x.n>0);
 }
 
 async function load(){
@@ -329,99 +357,114 @@ function setStatus(mode){
 function nowStr(){ const d=new Date(); const p=x=>String(x).padStart(2,'0');
   return `${d.getFullYear()}/${p(d.getMonth()+1)}/${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; }
 
+function book(list, key, cutN, rate){
+  const v=x=>toNum(x[key]);
+  const tot=list.reduce((a,b)=>a+v(b),0);
+  const prev=list.filter(x=>x.n<=cutN).reduce((a,b)=>a+v(b),0);
+  const neu=tot-prev;
+  return {tot, prev, neu, due:tot*rate, pDue:prev*rate, dDue:neu*rate};
+}
+function netMeta(net, date, cur){
+  const abs=Math.abs(net);
+  const kind=net<0?'due':net>0?'credit':'zero';
+  const title=net<0?'طلب على المستفيد':net>0?'باقي لدى الشركة':'الحساب متوازن';
+  const formula=net<0
+    ? `إجمالي مصاريف ${cur} أكبر من المدفوع لغاية ${date}`
+    : net>0
+      ? `إجمالي مدفوع ${cur} أكبر من المصاريف لغاية ${date}`
+      : `مدفوع ${cur} يساوي مصاريفه لغاية ${date}`;
+  const shown=cur==='$'?((net<0?'−':net>0?'+':'')+fmtUsd(abs)) : ((net<0?'−':net>0?'+':'')+fmt(abs));
+  return {net, abs, kind, title, formula, shown};
+}
+function phrase(meta, unit){
+  const words=tafqit(meta.abs);
+  if(meta.net===0) return `حساب ${unit} متوازن.`;
+  if(meta.net<0) return `يوجد <b>طلب على المستفيد</b> بمبلغ <span class="big">${unit==='دولار أمريكي'?fmtUsd(meta.abs):fmt(meta.abs)}</span> ${unit} (${words} ${unit}).`;
+  return `يوجد <b>باقي لدى الشركة</b> بمبلغ <span class="big">${unit==='دولار أمريكي'?fmtUsd(meta.abs):fmt(meta.abs)}</span> ${unit} (${words} ${unit}).`;
+}
+
 function render(data,mode){
   setStatus(mode);
   document.getElementById('updated').textContent = mode==='live' ? ('آخر تحديث: '+nowStr()) : '';
   const S=data.settings, rate=S.rate/100;
-  const pay=data.payments, st=data.statements;
-  const recv=pay.reduce((a,b)=>a+b.amt,0);
-  const spent=st.reduce((a,b)=>a+b.amt,0);
-  const due=spent*rate;
-  const result=recv-spent-due;         // negative => بذمة المستفيد
-  const baqi=-result;
-  // previous (exclude new rows beyond cutoff)
-  const pRecv=pay.filter(p=>p.n<=S.cutPay).reduce((a,b)=>a+b.amt,0);
-  const pSpent=st.filter(s=>s.n<=S.cutKashf).reduce((a,b)=>a+b.amt,0);
-  const pDue=pSpent*rate, pResult=pRecv-pSpent-pDue, pBaqi=-pResult;
-  const dRecv=recv-pRecv, dSpent=spent-pSpent, dDue=due-pDue, dBaqi=baqi-pBaqi;
+  const pay=data.payments.map(p=>({...p, amt:toNum(p.amt), usd:toNum(p.usd)}));
+  const st=data.statements.map(s=>({...s, amt:toNum(s.amt), usd:toNum(s.usd)}));
+  const iqdP=book(pay,'amt',S.cutPay,rate), usdP=book(pay,'usd',S.cutPay,rate);
+  const iqdS=book(st,'amt',S.cutKashf,rate), usdS=book(st,'usd',S.cutKashf,rate);
+  const hasUsd=usdP.tot!==0 || usdS.tot!==0;
+  const recv=iqdP.tot, spent=iqdS.tot, due=iqdS.due;
+  const pRecv=iqdP.prev, pSpent=iqdS.prev, pDue=iqdS.pDue, dDue=iqdS.dDue;
   const newPay=pay.filter(p=>p.n>S.cutPay).sort((a,b)=>a.n-b.n);
   const newSt=st.filter(s=>s.n>S.cutKashf).sort((a,b)=>a.n-b.n);
-  const sumNewPay=newPay.reduce((a,b)=>a+b.amt,0);
-  const sumNewSt=newSt.reduce((a,b)=>a+b.amt,0);
-  // cumulative up to each new statement
-  const totalUpTo=(n)=>st.filter(s=>s.n<=n).reduce((a,b)=>a+b.amt,0);
+  const sumNewPay=iqdP.neu, sumNewSt=iqdS.neu;
+  const totalUpTo=(n,key='amt')=>st.filter(s=>s.n<=n).reduce((a,b)=>a+toNum(b[key]),0);
+  const usdL=n=>hasUsd?`<div class="usd">${fmtUsd(n)}</div>`:'';
 
   document.getElementById('repNo').textContent=`ملخص المتابعة — وفق تقرير الشركة (${S.repNo})`;
   document.getElementById('repDate').textContent=`التاريخ: ${S.repDate}`;
   document.getElementById('rateTxt').textContent=S.rate;
 
   const pExp=pSpent+pDue;
-  const totExp=pExp+sumNewSt+dDue; /* spent + due — السابق يشمل العمولة السابقة */
-  const net=recv-totExp; /* سالب = طلب على المستفيد · موجب = باقي لدى الشركة */
-  const absNet=Math.abs(net);
-  const netKind=net<0?'due':net>0?'credit':'zero';
-  const netTitle=net<0?'طلب على المستفيد':net>0?'باقي لدى الشركة':'الحساب متوازن';
-  const netFormula=net<0
-    ? `إجمالي المصاريف أكبر من المدفوع لغاية ${S.repDate}`
-    : net>0
-      ? `إجمالي المدفوع أكبر من المصاريف لغاية ${S.repDate}`
-      : `إجمالي المدفوع يساوي إجمالي المصاريف لغاية ${S.repDate}`;
-  const netSigned=(net<0?'−':net>0?'+':'')+fmt(absNet);
+  const totExp=spent+due;
+  const iqdNet=netMeta(recv-totExp, S.repDate, 'د.ع');
+  const usdExp=usdS.tot+usdS.due;
+  const usdNet=netMeta(usdP.tot-usdExp, S.repDate, '$');
+
   document.getElementById('kpis').innerHTML=`
     <div class="kpi-group pay">
-      <div class="gh"><span>الدفعات</span><span class="eq">السابق + الجديد = الإجمالي</span></div>
+      <div class="gh"><span>الدفعات</span><span class="eq">السابق + الجديد = الإجمالي${hasUsd?' · دينار ودولار منفصلان':''}</span></div>
       <div class="kpis">
-        <div class="kpi"><div class="lbl">رصيد الدفعات السابقة</div><div class="val">${fmt(pRecv)}</div><div class="unit">دينار عراقي · حتى تقرير الشركة (${S.prevRepNo})</div></div>
-        <div class="kpi new"><div class="lbl">مجموع الدفعات الجديدة</div><div class="val">${fmt(sumNewPay)}</div><div class="unit">دينار عراقي · ${newPay.length} دفعة</div></div>
-        <div class="kpi total"><div class="lbl">إجمالي المدفوع</div><div class="val">${fmt(recv)}</div><div class="unit">دينار عراقي · ${pay.length} دفعة</div></div>
+        <div class="kpi"><div class="lbl">رصيد الدفعات السابقة</div><div class="val">${fmt(pRecv)}</div>${usdL(usdP.prev)}<div class="unit">دينار عراقي · حتى تقرير الشركة (${S.prevRepNo})</div></div>
+        <div class="kpi new"><div class="lbl">مجموع الدفعات الجديدة</div><div class="val">${fmt(sumNewPay)}</div>${usdL(usdP.neu)}<div class="unit">دينار عراقي · ${newPay.length} دفعة</div></div>
+        <div class="kpi total"><div class="lbl">إجمالي المدفوع</div><div class="val">${fmt(recv)}</div>${usdL(usdP.tot)}<div class="unit">دينار عراقي · ${pay.length} دفعة</div></div>
       </div>
     </div>
     <div class="kpi-group exp">
       <div class="gh"><span>المصاريف</span><span class="eq">السابق + الكشوفات + العمولة = الإجمالي</span></div>
       <div class="kpis">
-        <div class="kpi"><div class="lbl">الرصيد السابق للمصاريف</div><div class="val">${fmt(pExp)}</div><div class="unit">مصروف + استحقاق ${S.rate}% حتى تقرير الشركة (${S.prevRepNo})</div></div>
-        <div class="kpi new"><div class="lbl">مجموع الكشوفات الجديدة</div><div class="val">${fmt(sumNewSt)}</div><div class="unit">دينار عراقي · ${newSt.length} كشف</div></div>
-        <div class="kpi fee"><div class="lbl">العمولة للكشوفات الجديدة</div><div class="val">${fmt(dDue)}</div><div class="unit">استحقاق ${S.rate}% على الكشوفات الجديدة</div></div>
-        <div class="kpi total"><div class="lbl">إجمالي المصاريف</div><div class="val">${fmt(totExp)}</div><div class="unit">دينار عراقي · شامل الاستحقاق التراكمي</div></div>
+        <div class="kpi"><div class="lbl">الرصيد السابق للمصاريف</div><div class="val">${fmt(pExp)}</div>${usdL(usdS.prev+usdS.pDue)}<div class="unit">مصروف + استحقاق ${S.rate}% حتى تقرير الشركة (${S.prevRepNo})</div></div>
+        <div class="kpi new"><div class="lbl">مجموع الكشوفات الجديدة</div><div class="val">${fmt(sumNewSt)}</div>${usdL(usdS.neu)}<div class="unit">دينار عراقي · ${newSt.length} كشف</div></div>
+        <div class="kpi fee"><div class="lbl">العمولة للكشوفات الجديدة</div><div class="val">${fmt(dDue)}</div>${usdL(usdS.dDue)}<div class="unit">استحقاق ${S.rate}% على الكشوفات الجديدة</div></div>
+        <div class="kpi total"><div class="lbl">إجمالي المصاريف</div><div class="val">${fmt(totExp)}</div>${usdL(usdExp)}<div class="unit">دينار عراقي · شامل الاستحقاق التراكمي</div></div>
       </div>
     </div>
-    <div class="askbox ${netKind}">
-      <div>
-        <div class="al">${netTitle}</div>
-        <div class="as">${netFormula}</div>
-      </div>
-      <div class="av">${netSigned}</div>
-    </div>`;
+    ${hasUsd?`<div class="askgrid">
+      <div class="askbox ${iqdNet.kind}"><div><div class="al">${iqdNet.title} — دينار</div><div class="as">${iqdNet.formula}</div></div><div class="av">${iqdNet.shown}</div></div>
+      <div class="askbox ${usdNet.kind}"><div><div class="al">${usdNet.title} — دولار</div><div class="as">${usdNet.formula}</div></div><div class="av">${usdNet.shown}</div></div>
+    </div>`:`<div class="askbox ${iqdNet.kind}"><div><div class="al">${iqdNet.title}</div><div class="as">${iqdNet.formula}</div></div><div class="av">${iqdNet.shown}</div></div>`}`;
 
-  const rowsPay=newPay.length?newPay.map(p=>`<tr><td class="idx">${p.n}</td><td>${p.date||'—'}</td><td>${p.note||'—'}</td><td class="num">${fmt(p.amt)}</td></tr>`).join('')
-    :`<tr><td class="empty" colspan="4">لا توجد دفعات جديدة بهذه الفترة</td></tr>`;
-  const rowsSt=newSt.length?newSt.map(s=>`<tr><td class="idx">${s.n}</td><td class="num">${fmt(s.amt)}</td><td class="num">${fmt(totalUpTo(s.n))}</td></tr>`).join('')
-    :`<tr><td class="empty" colspan="3">لا توجد كشوفات جديدة بهذه الفترة</td></tr>`;
+  const payCols=hasUsd?5:4, stCols=hasUsd?5:3;
+  const rowsPay=newPay.length?newPay.map(p=>`<tr><td class="idx">${p.n}</td><td>${p.date||'—'}</td><td>${p.note||'—'}</td><td class="num">${p.amt?fmt(p.amt):'—'}</td>${hasUsd?`<td class="num">${p.usd?fmtUsd(p.usd):'—'}</td>`:''}</tr>`).join('')
+    :`<tr><td class="empty" colspan="${payCols}">لا توجد دفعات جديدة بهذه الفترة</td></tr>`;
+  const rowsSt=newSt.length?newSt.map(s=>`<tr><td class="idx">${s.n}</td><td class="num">${s.amt?fmt(s.amt):'—'}</td><td class="num">${fmt(totalUpTo(s.n))}</td>${hasUsd?`<td class="num">${s.usd?fmtUsd(s.usd):'—'}</td><td class="num">${fmtUsd(totalUpTo(s.n,'usd'))}</td>`:''}</tr>`).join('')
+    :`<tr><td class="empty" colspan="${stCols}">لا توجد كشوفات جديدة بهذه الفترة</td></tr>`;
   document.getElementById('newBlock').innerHTML=`
     <div class="newhdr"><span class="tag">الجديد</span><h3>الحركات المضافة في هذه الفترة</h3>
       <span class="cmp">مقارنةً بتقرير الشركة السابق رقم (${S.prevRepNo}) — لغاية ${S.prevDate}</span></div>
     <div class="newgrid">
-      <div class="ntab"><div class="cap"><span>دفعات جديدة مستلمة</span><span class="sum">+${fmt(sumNewPay)}</span></div>
-        <table><tr><th>الدفعة</th><th>تاريخ الاستلام</th><th>الملاحظات</th><th>المبلغ (د.ع)</th></tr>${rowsPay}</table></div>
-      <div class="ntab"><div class="cap"><span>كشوفات مصروفة جديدة</span><span class="sum">+${fmt(sumNewSt)}</span></div>
-        <table><tr><th>رقم الكشف</th><th>قيمة الكشف (د.ع)</th><th>التراكمي (د.ع)</th></tr>${rowsSt}</table></div>
+      <div class="ntab"><div class="cap"><span>دفعات جديدة مستلمة</span><span class="sum">+${fmt(sumNewPay)}${hasUsd?`<span class="usd">+${fmtUsd(usdP.neu)}</span>`:''}</span></div>
+        <table><tr><th>الدفعة</th><th>تاريخ الاستلام</th><th>الملاحظات</th><th>المبلغ (د.ع)</th>${hasUsd?'<th>المبلغ ($)</th>':''}</tr>${rowsPay}</table></div>
+      <div class="ntab"><div class="cap"><span>كشوفات مصروفة جديدة</span><span class="sum">+${fmt(sumNewSt)}${hasUsd?`<span class="usd">+${fmtUsd(usdS.neu)}</span>`:''}</span></div>
+        <table><tr><th>رقم الكشف</th><th>قيمة الكشف (د.ع)</th><th>التراكمي (د.ع)</th>${hasUsd?'<th>قيمة ($)</th><th>التراكمي ($)</th>':''}</tr>${rowsSt}</table></div>
     </div>`;
 
+  const usdAmt=(n)=>hasUsd?`<span class="n usd">${fmtUsd(n)}</span>`:'';
   document.getElementById('balbox').innerHTML=`
-    <div class="bh">الموازنة الختامية</div>
-    <div class="row"><span class="lab">مجموع الدفعات المستلمة من المستفيد</span><span class="n">${fmt(recv)}</span></div>
-    <div class="row"><span class="lab"><span class="op">(−)</span>مجموع المبالغ المصروفة على العمل</span><span class="n">${fmt(spent)}</span></div>
-    <div class="row"><span class="lab"><span class="op">(−)</span>استحقاق الشركة المنفذة ${S.rate}%</span><span class="n">${fmt(due)}</span></div>
-    <div class="row result ${netKind}"><span class="lab">${netTitle}</span><span class="n">${netSigned}</span></div>`;
+    <div class="bh">الموازنة الختامية${hasUsd?' — كل عملة على حدة':''}</div>
+    <div class="row"><span class="lab">مجموع الدفعات المستلمة من المستفيد</span><span class="nums"><span class="n">${fmt(recv)}</span>${usdAmt(usdP.tot)}</span></div>
+    <div class="row"><span class="lab"><span class="op">(−)</span>مجموع المبالغ المصروفة على العمل</span><span class="nums"><span class="n">${fmt(spent)}</span>${usdAmt(usdS.tot)}</span></div>
+    <div class="row"><span class="lab"><span class="op">(−)</span>استحقاق الشركة المنفذة ${S.rate}%</span><span class="nums"><span class="n">${fmt(due)}</span>${usdAmt(usdS.due)}</span></div>
+    <div class="row result ${iqdNet.kind}"><span class="lab">${hasUsd?iqdNet.title+' — دينار':iqdNet.title}</span><span class="nums"><span class="n">${iqdNet.shown}</span>${hasUsd?`<span class="n usd">${usdNet.title} ${usdNet.shown}</span>`:''}</span></div>`;
 
-  const words=tafqit(absNet);
   const sumEl=document.getElementById('summary');
-  sumEl.className='summary '+netKind;
-  sumEl.innerHTML=net===0
-    ? `الخلاصة: الحساب متوازن لغاية إعداد هذا الملخص.`
-    : net<0
-      ? `الخلاصة: يوجد <b>طلب على المستفيد</b> لصالح شركة نهج الرافدين بمبلغ <span class="big">${fmt(absNet)}</span> دينار عراقي (${words} دينار عراقي).`
-      : `الخلاصة: يوجد <b>باقي لدى الشركة</b> لصالح المستفيد بمبلغ <span class="big">${fmt(absNet)}</span> دينار عراقي (${words} دينار عراقي).`;
+  if(!hasUsd){
+    sumEl.className='summary '+iqdNet.kind;
+    sumEl.innerHTML=`الخلاصة: ${phrase(iqdNet,'دينار عراقي')}`;
+  }else{
+    const same=iqdNet.kind===usdNet.kind;
+    sumEl.className='summary '+(same?iqdNet.kind:'mixed');
+    sumEl.innerHTML=`<div class="line">الخلاصة بالدينار: ${phrase(iqdNet,'دينار عراقي')}</div><div class="line">الخلاصة بالدولار: ${phrase(usdNet,'دولار أمريكي')}</div>`;
+  }
 }
 
 document.getElementById('btnRefresh').addEventListener('click',load);
