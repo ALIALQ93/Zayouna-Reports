@@ -1,0 +1,1717 @@
+{
+ "matched": 16,
+ "review": 146,
+ "matched_sum": 70958500,
+ "statements": [
+  {
+   "n": 1,
+   "target": 975000,
+   "status": "review",
+   "file": "كشف 1 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 2,
+   "target": 19112000,
+   "status": "review",
+   "file": "كشف 2 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 3,
+   "target": 2000000,
+   "status": "matched",
+   "file": "كشف 3 دار زيونة.pdf",
+   "pages": 1,
+   "lines": [
+    {
+     "desc": "اجور هدم المنزل ورفع الانقاض ١٠٢٤١١٠١١",
+     "amount": 2000000,
+     "cat": "أعمال",
+     "note": "تنفيذ"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "target": 350000,
+   "status": "review",
+   "file": "كشف 4 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 5,
+   "target": 2161000,
+   "status": "matched",
+   "file": "كشف 5 دار زيونة.pdf",
+   "pages": 1,
+   "lines": [
+    {
+     "desc": "1 بليت اسناد تربة",
+     "amount": 1390000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "مواد صحية مجاري الموقع",
+     "amount": 551000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "3 دفعة عن اعمال حدادة البليت",
+     "amount": 75000,
+     "cat": "أعمال",
+     "note": "دفعة"
+    },
+    {
+     "desc": "4",
+     "amount": 50000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    },
+    {
+     "desc": "5",
+     "amount": 75000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    },
+    {
+     "desc": "عامل تنضيف المنهولة القديمة 10/26",
+     "amount": 20000,
+     "cat": "أعمال",
+     "note": "تنفيذ"
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "target": 9000000,
+   "status": "review",
+   "file": "كشف 6 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 7,
+   "target": 175000,
+   "status": "review",
+   "file": "كشف 7 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 8,
+   "target": 3126000,
+   "status": "review",
+   "file": "كشف 8 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 9,
+   "target": 2960000,
+   "status": "review",
+   "file": "كشف 9 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 10,
+   "target": 1803000,
+   "status": "review",
+   "file": "كشف 10 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 11,
+   "target": 1040000,
+   "status": "review",
+   "file": "كشف 11 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 12,
+   "target": 188500,
+   "status": "review",
+   "file": "كشف 12 دار زيونة .pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 13,
+   "target": 405000,
+   "status": "review",
+   "file": "كشف 13 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 14,
+   "target": 7790000,
+   "status": "review",
+   "file": "كشف 14 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 15,
+   "target": 8939000,
+   "status": "review",
+   "file": "كشف 15 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 16,
+   "target": 4694000,
+   "status": "review",
+   "file": "كشف 16 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 17,
+   "target": 3886000,
+   "status": "review",
+   "file": "كشف 17 دار زيونة .pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 18,
+   "target": 550000,
+   "status": "review",
+   "file": "كشف 18 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 19,
+   "target": 430000,
+   "status": "matched",
+   "file": "كشف 19 دار زيونة.pdf",
+   "pages": 2,
+   "lines": [
+    {
+     "desc": "المجموع اربعمائة وثلاثون الف دينار عراقي",
+     "amount": 430000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 20,
+   "target": 1120000,
+   "status": "review",
+   "file": "كشف 20 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 21,
+   "target": 2044000,
+   "status": "review",
+   "file": "كشف 21 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 22,
+   "target": 200000,
+   "status": "matched",
+   "file": "كشف 22 دار زيونة.pdf",
+   "pages": 2,
+   "lines": [
+    {
+     "desc": "المجموع منتان الف دينار عراقي",
+     "amount": 200000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 23,
+   "target": 560000,
+   "status": "review",
+   "file": "كشف 23 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 24,
+   "target": 4065000,
+   "status": "review",
+   "file": "كشف 24 دار زيونة .pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 25,
+   "target": 9992500,
+   "status": "review",
+   "file": "كشف 25 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 26,
+   "target": 11990000,
+   "status": "review",
+   "file": "كشف 26 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 27,
+   "target": 7473000,
+   "status": "review",
+   "file": "كشف 27 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 28,
+   "target": 23590000,
+   "status": "review",
+   "file": "كشف 28 دار زيونة .pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 29,
+   "target": 7384000,
+   "status": "review",
+   "file": "كشف 29 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 30,
+   "target": 12672000,
+   "status": "review",
+   "file": "كشف 30 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 31,
+   "target": 533000,
+   "status": "review",
+   "file": "كشف 31 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 32,
+   "target": 7760250,
+   "status": "review",
+   "file": "كشف 32 دار زيونة .pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 33,
+   "target": 12478000,
+   "status": "review",
+   "file": "كشف 33 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 34,
+   "target": 10070000,
+   "status": "review",
+   "file": "كشف 34 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 35,
+   "target": 27356000,
+   "status": "review",
+   "file": "كشف 35 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 36,
+   "target": 704000,
+   "status": "review",
+   "file": "كشف 36 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 37,
+   "target": 5557000,
+   "status": "review",
+   "file": "كشف 37 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 38,
+   "target": 14522000,
+   "status": "review",
+   "file": "كشف 38 دار زيونة .pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 39,
+   "target": 10472000,
+   "status": "review",
+   "file": "كشف 39 دار زيونة .pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 40,
+   "target": 11472000,
+   "status": "review",
+   "file": "كشف 40 دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 41,
+   "target": 15241000,
+   "status": "review",
+   "file": "كشف 41 دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 42,
+   "target": 1665000,
+   "status": "review",
+   "file": "كشف 42 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 43,
+   "target": 9171000,
+   "status": "review",
+   "file": "كشف 43 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 44,
+   "target": 7353500,
+   "status": "review",
+   "file": "كشف 44 دار زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 45,
+   "target": 12080000,
+   "status": "review",
+   "file": "كشف 45 دور زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 46,
+   "target": 23920000,
+   "status": "review",
+   "file": "كشف 46 دور زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 47,
+   "target": 155000,
+   "status": "review",
+   "file": "كشف 47 دور زيونه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 48,
+   "target": 781500,
+   "status": "review",
+   "file": "كشف 48 دور زيونه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 49,
+   "target": 10370000,
+   "status": "review",
+   "file": "كشف 49 دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 50,
+   "target": 9328000,
+   "status": "matched",
+   "file": "كشف 50 دار زيونة وحدتين سكنية.pdf",
+   "pages": 3,
+   "lines": [
+    {
+     "desc": "حساب كونكريت سقف السرداب مع ٠٢٥٤٣٠»",
+     "amount": 9328000,
+     "cat": "مواد",
+     "note": "شراء"
+    }
+   ]
+  },
+  {
+   "n": 51,
+   "target": 12010000,
+   "status": "review",
+   "file": "كشف 51 دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 52,
+   "target": 3175000,
+   "status": "review",
+   "file": "كشف 52 داز زيونة وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 53,
+   "target": 8657000,
+   "status": "review",
+   "file": "كشف 53 دار زيونة وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 54,
+   "target": 12626000,
+   "status": "review",
+   "file": "كشف 54 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 55,
+   "target": 1073750,
+   "status": "review",
+   "file": "كشف 55 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 56,
+   "target": 2268500,
+   "status": "review",
+   "file": "كشف 56 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 57,
+   "target": 10575000,
+   "status": "review",
+   "file": "كشف 57 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 58,
+   "target": 5756000,
+   "status": "review",
+   "file": "كشف 58 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 59,
+   "target": 13190000,
+   "status": "review",
+   "file": "كشف 59 دار زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 60,
+   "target": 2185000,
+   "status": "review",
+   "file": "كشف 60 دار وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 61,
+   "target": 3256000,
+   "status": "review",
+   "file": "كشف 61 دور زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 62,
+   "target": 2766000,
+   "status": "review",
+   "file": "كشف 62 دور زيونه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 63,
+   "target": 17240000,
+   "status": "review",
+   "file": "كشف 63 دور زيونه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 64,
+   "target": 1274000,
+   "status": "review",
+   "file": "كشف 64 دور زيونة.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 65,
+   "target": 160000,
+   "status": "matched",
+   "file": "رقم الكشف 65 دار زيونه وحدتين سكنية.pdf",
+   "pages": 1,
+   "lines": [
+    {
+     "desc": "",
+     "amount": 160000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 66,
+   "target": 108000,
+   "status": "review",
+   "file": "رقم الكشف 66 دار زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 67,
+   "target": 1475000,
+   "status": "review",
+   "file": "رقم الكشف 67 دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 68,
+   "target": 10460000,
+   "status": "matched",
+   "file": "رقم الكشف 68 دار زيونة وحدتين سكنية.pdf",
+   "pages": 2,
+   "lines": [
+    {
+     "desc": "عشرة ملاين واربعمائة وستون الف دينار عراقي",
+     "amount": 10460000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 69,
+   "target": 5440000,
+   "status": "matched",
+   "file": "رقم الكشف 69 دور زيونه وحدتين سكنيه.pdf",
+   "pages": 1,
+   "lines": [
+    {
+     "desc": "1 حديد 819",
+     "amount": 3390000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "2 حديد 8112",
+     "amount": 2050000,
+     "cat": "مواد",
+     "note": "شراء"
+    }
+   ]
+  },
+  {
+   "n": 70,
+   "target": 7405000,
+   "status": "review",
+   "file": "رقم الكشف 70 دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 71,
+   "target": 973000,
+   "status": "review",
+   "file": "رقم الكشف 71 دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 72,
+   "target": 11968000,
+   "status": "review",
+   "file": "رقم الكشف 72 دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 73,
+   "target": 21235000,
+   "status": "review",
+   "file": "رقم الكشف 73 دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 74,
+   "target": 645500,
+   "status": "review",
+   "file": "رقم الكشف 74 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 75,
+   "target": 8535000,
+   "status": "review",
+   "file": "رقم الكشف 75 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 76,
+   "target": 6437000,
+   "status": "review",
+   "file": "رقم الكشف 76 دور زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 77,
+   "target": 255000,
+   "status": "matched",
+   "file": "رقم الكشف ٧٧ دار زيونه وحدتين سكنيه.pdf",
+   "pages": 1,
+   "lines": [
+    {
+     "desc": "جموع منتان و خمس خمسون الف دينار عراقي",
+     "amount": 255000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 78,
+   "target": 5146000,
+   "status": "review",
+   "file": "رقم 78 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 79,
+   "target": 3015750,
+   "status": "review",
+   "file": "رقم الكشف ٧٩ دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 80,
+   "target": 10289000,
+   "status": "review",
+   "file": "رقم الكشف ٨٠ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 81,
+   "target": 255000,
+   "status": "review",
+   "file": "رقم الكشف ٨١ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 82,
+   "target": 1768500,
+   "status": "review",
+   "file": "رقم الكشف ٨٢ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 83,
+   "target": 6688000,
+   "status": "review",
+   "file": "رقم الكشف ٨٣ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 84,
+   "target": 727500,
+   "status": "matched",
+   "file": "رقم الكشف ٨٤ دار زيونة وحدتين سكنية.pdf",
+   "pages": 5,
+   "lines": [
+    {
+     "desc": "1",
+     "amount": 35000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    },
+    {
+     "desc": "2 شراء برينه تثقيب",
+     "amount": 10000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "3 تجهيز سبيسر ب 65 و أن اجر التوصيل ()l",
+     "amount": 75000,
+     "cat": "أعمال",
+     "note": "تنفيذ"
+    },
+    {
+     "desc": "4 شراء مواد(نايلونقرص",
+     "amount": 17500,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "5 عدد =6()24 و خلفات عدد 140=2 و نقل 20 و",
+     "amount": 475000,
+     "cat": "نقل",
+     "note": "نقل"
+    },
+    {
+     "desc": "6 اجر عامل تنظيف سقف الطابق الثاني للدار الأول 9/11",
+     "amount": 35000,
+     "cat": "أعمال",
+     "note": "تنفيذ"
+    },
+    {
+     "desc": "أجور\" ءلرش ني الأول 10/11",
+     "amount": 50000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    },
+    {
+     "desc": "8 ي",
+     "amount": 30000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 85,
+   "target": 279000,
+   "status": "review",
+   "file": "رقم الكشف ٨٥ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 86,
+   "target": 13540000,
+   "status": "review",
+   "file": "رقم الكشف ٨٦ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 87,
+   "target": 13650000,
+   "status": "review",
+   "file": "رقم الكشف ٨٧ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 88,
+   "target": 5000000,
+   "status": "review",
+   "file": "رقم الكشف ٨٨ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 89,
+   "target": 8059500,
+   "status": "review",
+   "file": "رقم الكشف ٨٩ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 90,
+   "target": 5000000,
+   "status": "review",
+   "file": "رقم الكشف ٩٠ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 92,
+   "target": 2500000,
+   "status": "matched",
+   "file": "رقم الكشف ٩٢ دور زيونة وحدتين سكنية.pdf",
+   "pages": 1,
+   "lines": [
+    {
+     "desc": "المجموع مليونان وخمسمائة الف دينار عراقي",
+     "amount": 2500000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 94,
+   "target": 2500000,
+   "status": "review",
+   "file": "رقم الكشف ٩٤ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 95,
+   "target": 29535000,
+   "status": "matched",
+   "file": "رقم الكشف ٩٥ دور زيونة وحدتين سكنية.pdf",
+   "pages": 4,
+   "lines": [
+    {
+     "desc": "1",
+     "amount": 4990000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    },
+    {
+     "desc": "شراء حديد تسليح عن اعمال التسليح 9/30 حسب الوصل",
+     "amount": 4015000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "3 شراء حديد تسليح عن اعمال التسليح 9/14 حسب الوصل",
+     "amount": 20280000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "4 اجرة كرين تصعيد الحديد الى السطح 12117",
+     "amount": 250000,
+     "cat": "أعمال",
+     "note": "تنفيذ"
+    }
+   ]
+  },
+  {
+   "n": 96,
+   "target": 2479000,
+   "status": "review",
+   "file": "رقم الكشف ٩٦ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 97,
+   "target": 934000,
+   "status": "matched",
+   "file": "رقم الكشف ٩٧ دور زيونة وحدتين سكنية.pdf",
+   "pages": 4,
+   "lines": [
+    {
+     "desc": "5 12124",
+     "amount": 280000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    },
+    {
+     "desc": "أجور عمال عدد 4+ ايجار ونج 30+ نقل 30 تنزيل",
+     "amount": 200000,
+     "cat": "نقل",
+     "note": "نقل"
+    },
+    {
+     "desc": "6 أجور سكله 12124 وصل",
+     "amount": 150000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    },
+    {
+     "desc": "1 ط الأول",
+     "amount": 140000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    },
+    {
+     "desc": "أجور مواد كهرباء (بوري-جوين...) 12123 وصل",
+     "amount": 117000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "3 أجور مواد كهرباء (جكشن) 12123 وصل",
+     "amount": 47000,
+     "cat": "مواد",
+     "note": "شراء"
+    }
+   ]
+  },
+  {
+   "n": 98,
+   "target": 11176000,
+   "status": "review",
+   "file": "رقم الكشف ٩٨ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 99,
+   "target": 17350000,
+   "status": "review",
+   "file": "رقم الكشف ٩٩ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 100,
+   "target": 1443000,
+   "status": "review",
+   "file": "رقم الكشف ١٠٠ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 101,
+   "target": 990000,
+   "status": "review",
+   "file": "رقم الكشف ١٠١ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 102,
+   "target": 616000,
+   "status": "review",
+   "file": "رقم الكشف 102 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 103,
+   "target": 6043000,
+   "status": "review",
+   "file": "رقم الكشف 103 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 104,
+   "target": 2990000,
+   "status": "review",
+   "file": "رقم الكشف 104 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 105,
+   "target": 5000000,
+   "status": "review",
+   "file": "رقم الكشف 105 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 106,
+   "target": 1760000,
+   "status": "review",
+   "file": "رقم الكشف 106 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 107,
+   "target": 5000000,
+   "status": "review",
+   "file": "رقم الكشف 107 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 108,
+   "target": 15773000,
+   "status": "review",
+   "file": "رقم الكشف 108 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 109,
+   "target": 2911000,
+   "status": "review",
+   "file": "رقم الكشف 109 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 110,
+   "target": 14759500,
+   "status": "review",
+   "file": "رقم الكشف 110 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 111,
+   "target": 2504000,
+   "status": "matched",
+   "file": "رقم الكشف 111 دور زيونة وحدتين سكنية.pdf",
+   "pages": 4,
+   "lines": [
+    {
+     "desc": "أجور مواد انشائية صدام سكله 3/3",
+     "amount": 1600000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "عمال عدد 3 تصعيد مواد 90= 3/3",
+     "amount": 670000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "شراء مواد صحية قفايص سلايد 3/3",
+     "amount": 164000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "4 تعديل المخطط",
+     "amount": 70000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 112,
+   "target": 4500000,
+   "status": "review",
+   "file": "رقم الكشف 112 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 113,
+   "target": 4677000,
+   "status": "review",
+   "file": "رقم الكشف 113 دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 114,
+   "target": 46400000,
+   "status": "review",
+   "file": "رقم الكشف ١١٤ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 115,
+   "target": 55996000,
+   "status": "review",
+   "file": "رقم الكشف ١١٥ دور زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 116,
+   "target": 12018000,
+   "status": "review",
+   "file": "رقم الكشف ١١٦ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 117,
+   "target": 9335000,
+   "status": "review",
+   "file": "رقم الكشف ١١٧ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 118,
+   "target": 9106000,
+   "status": "review",
+   "file": "رقم الكشف ١١٨ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 119,
+   "target": 1124000,
+   "status": "matched",
+   "file": "رقم الكشف ١١٩ دار زيونة وحدتين سكنية.pdf",
+   "pages": 3,
+   "lines": [
+    {
+     "desc": "شراء مواد صحية لعمل سخان للحمام الخارجي 28/3 وصل",
+     "amount": 124000,
+     "cat": "مواد",
+     "note": "شراء"
+    },
+    {
+     "desc": "وعمال 2 تنظيف كراج و الشارع و فتح الخشب اسفل باية 29/3",
+     "amount": 140000,
+     "cat": "أعمال",
+     "note": "تنفيذ"
+    },
+    {
+     "desc": "3 أجور مواد \" وصل",
+     "amount": 860000,
+     "cat": "مواد",
+     "note": "شراء"
+    }
+   ]
+  },
+  {
+   "n": 120,
+   "target": 6688000,
+   "status": "review",
+   "file": "رقم الكشف ١٢٠ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 121,
+   "target": 465000,
+   "status": "review",
+   "file": "رقم الكشف ١٢١ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 122,
+   "target": 7493500,
+   "status": "review",
+   "file": "رقم الكشف ١٢٢ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 123,
+   "target": 2575000,
+   "status": "review",
+   "file": "رقم الكشف ١٢٣ دار زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 128,
+   "target": 2000000,
+   "status": "review",
+   "file": "رقم الكشف ١٢٨ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 129,
+   "target": 10191000,
+   "status": "review",
+   "file": "رقم الكشف ١٢٩ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 130,
+   "target": 3200000,
+   "status": "matched",
+   "file": "رقم الكشف ١٣٠ دور زيونه وحدتين سكنيه.pdf",
+   "pages": 12,
+   "lines": [
+    {
+     "desc": "ثلاثة ملايين ومئتان الف دينار عراقي",
+     "amount": 3200000,
+     "cat": "غير مصنف",
+     "note": "الوصف غير كافٍ"
+    }
+   ]
+  },
+  {
+   "n": 131,
+   "target": 338000,
+   "status": "review",
+   "file": "رقم الكشف ١٣١ دور زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 132,
+   "target": 3067500,
+   "status": "review",
+   "file": "رقم الكشف ١٣٢ دور زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 133,
+   "target": 13090000,
+   "status": "review",
+   "file": "رقم الكشف ١٣٣ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 135,
+   "target": 14521000,
+   "status": "review",
+   "file": "كشف 135 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 136,
+   "target": 10011000,
+   "status": "review",
+   "file": "كشف 136 دار زيونة وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 137,
+   "target": 3439000,
+   "status": "review",
+   "file": "كشف 137 دار زيونه وحدتين سكنيه.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 138,
+   "target": 995000,
+   "status": "review",
+   "file": "رقم الكشف ١٣٨ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 139,
+   "target": 4500000,
+   "status": "review",
+   "file": "رقم الكشف ١٣٩ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 140,
+   "target": 9739000,
+   "status": "review",
+   "file": "رقم الكشف ١٤٠ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 141,
+   "target": 21164000,
+   "status": "review",
+   "file": "رقم الكشف ١٤١ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 142,
+   "target": 8438500,
+   "status": "review",
+   "file": "رقم الكشف ١٤٢ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 143,
+   "target": 6638500,
+   "status": "review",
+   "file": "كشف 143 دار زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 144,
+   "target": 2910000,
+   "status": "review",
+   "file": "رقم الكشف ١٤٤ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 145,
+   "target": 10061000,
+   "status": "review",
+   "file": "رقم الكشف ١٤٥ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 146,
+   "target": 50707000,
+   "status": "review",
+   "file": "رقم الكشف ١٤٦ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 147,
+   "target": 6225000,
+   "status": "review",
+   "file": "رقم الكشف ١٤٧ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 148,
+   "target": 9941000,
+   "status": "review",
+   "file": "رقم الكشف ١٤٨ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 149,
+   "target": 7060250,
+   "status": "review",
+   "file": "رقم الكشف ١٤٩ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 150,
+   "target": 26376000,
+   "status": "review",
+   "file": "رقم الكشف ١٥٠ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 151,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥١ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 152,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥٢ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 153,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥٣ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 154,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥٤ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 155,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥٥ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 156,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥٦ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 157,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥٧ دار زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 158,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥٨ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 159,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٥٩ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 160,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٠ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 161,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦١ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 162,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٢ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 163,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٣ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 164,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٤ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 165,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٥ دور زيونه وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 166,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٦ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 167,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٧ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 168,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٨ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  },
+  {
+   "n": 169,
+   "target": null,
+   "status": "review",
+   "file": "رقم الكشف ١٦٩ دور زيونة وحدتين سكنية.pdf",
+   "pages": null,
+   "lines": [],
+   "read_sum": null
+  }
+ ]
+}
