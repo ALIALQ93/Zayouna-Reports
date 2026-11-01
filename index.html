@@ -127,6 +127,17 @@ table{width:100%; border-collapse:collapse}
 .summary.zero{background:#f7f8fb; border:1px solid var(--line); color:var(--navy)}
 .summary.zero .big{color:var(--navy)}
 .summary.mixed{background:#f7f8fb; border:1px solid var(--line); color:var(--ink)}
+.unitcost{border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-top:12px}
+.unitcost .uh{background:var(--navy); color:#fff; font-weight:800; font-size:13.5px; padding:9px 14px; display:flex; justify-content:space-between; gap:10px; align-items:center}
+.unitcost .uh span{color:var(--gold); font-weight:700; font-size:12px}
+.unitcost .row{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:8px 15px; font-size:13px; border-bottom:1px solid var(--line)}
+.unitcost .row .lab{font-weight:600}
+.unitcost .row .n{direction:ltr; font-weight:800; font-variant-numeric:tabular-nums; color:var(--navy); white-space:nowrap}
+.unitcost .row.total{background:#f4f7fb}
+.unitcost .row.total .lab,.unitcost .row.total .n{font-weight:800; color:var(--navy)}
+.unitcost .row.share{background:#fffdf6}
+.unitcost .row.share .n{font-size:15px}
+.unitcost .hint{padding:8px 15px 10px; font-size:11.5px; color:var(--muted); font-weight:600; line-height:1.55}
 .summary .line{margin-top:4px}
 .summary .line:first-child{margin-top:0}
 .foot{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-top:14px; padding-top:12px; border-top:2px solid var(--navy)}
@@ -154,7 +165,7 @@ table{width:100%; border-collapse:collapse}
   .titleband .t{font-size:13.5px}
   .titleband .s{font-size:11px}
   .kpi-groups{gap:6px; margin-bottom:7px}
-  .kpi-group,.askbox,.newwrap,.balbox,.summary{border-radius:8px}
+  .kpi-group,.askbox,.newwrap,.balbox,.summary,.unitcost{border-radius:8px}
   .kpi-group .gh{padding:4px 10px; font-size:12px}
   .kpi{padding:6px 9px}
   .kpi .lbl{font-size:10px; margin-bottom:2px}
@@ -181,6 +192,11 @@ table{width:100%; border-collapse:collapse}
   .balbox .row.result .lab{font-size:12.5px}
   .balbox .row.result .n{font-size:13.5px}
   .summary{padding:6px 10px; font-size:11.5px; margin-top:0}
+  .unitcost{margin-top:7px}
+  .unitcost .uh{padding:5px 10px; font-size:12px}
+  .unitcost .row{padding:3px 10px; font-size:11.5px}
+  .unitcost .row.share .n{font-size:13px}
+  .unitcost .hint{padding:4px 10px 6px; font-size:10px}
   .foot{margin-top:7px; padding-top:6px; gap:10px}
   .sign{font-size:11px}
   .source{font-size:9.5px; line-height:1.4; max-width:290px}
@@ -226,6 +242,7 @@ table{width:100%; border-collapse:collapse}
   <div class="newwrap" id="newBlock"></div>
   <div class="balbox" id="balbox"></div>
   <div class="summary" id="summary"></div>
+  <div class="unitcost" id="unitcost"></div>
 
   <div class="foot">
     <div class="sign"><div class="role">متابعة حسابات المستفيد</div><div class="name">أُعدّ للمستفيد من بيانات الشركة المنفذة</div></div>
@@ -468,6 +485,20 @@ function render(data,mode){
     sumEl.className='summary '+(same?iqdNet.kind:'mixed');
     sumEl.innerHTML=`<div class="line">الخلاصة بالدينار: ${phrase(iqdNet,'دينار عراقي')}</div><div class="line">الخلاصة بالدولار: ${phrase(usdNet,'دولار أمريكي')}</div>`;
   }
+
+  const FX=1500;
+  const project=totExp + usdExp*FX;
+  const unitA=Math.ceil(project/2);
+  const unitB=project-unitA;
+  const odd=unitA!==unitB;
+  document.getElementById('unitcost').innerHTML=`
+    <div class="uh"><span>الكلفة النهائية لكل وحدة</span><span>دينار · الدولار × ${fmt(FX)}</span></div>
+    <div class="row"><span class="lab">مصاريف الدينار مع الاستحقاق ${S.rate}%</span><span class="n">${fmt(totExp)}</span></div>
+    ${hasUsd?`<div class="row"><span class="lab">مصاريف الدولار مع الاستحقاق ${S.rate}%: ${fmtUsd(usdExp)} × ${fmt(FX)}</span><span class="n">${fmt(usdExp*FX)}</span></div>`:''}
+    <div class="row total"><span class="lab">كلفة المشروع</span><span class="n">${fmt(project)}</span></div>
+    <div class="row share"><span class="lab">حصة الوحدة الأولى</span><span class="n">${fmt(unitA)}</span></div>
+    <div class="row share"><span class="lab">حصة الوحدة الثانية</span><span class="n">${fmt(unitB)}</span></div>
+    <div class="hint">قسمة مناصفة بين الوحدتين لأن الكشوف دفتر واحد للمشروع.${odd?' الدينار المتبقي من النصف وُضع في الوحدة الأولى حتى يطابق المجموع.':''} هذا بيان كلفة، والموازنة أعلاه تبقى لكل عملة وحدها.</div>`;
 }
 
 document.getElementById('btnRefresh').addEventListener('click',load);
