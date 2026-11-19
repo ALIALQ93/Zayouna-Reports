@@ -78,6 +78,8 @@ td.num,th.num{direction:ltr;text-align:left;font-variant-numeric:tabular-nums;wh
 .kblock .ops{display:flex;gap:6px;flex-wrap:wrap}
 .kblock .ops button{border:1px solid var(--line);background:#fff;color:var(--navy);font-weight:700;font-size:12px;border-radius:999px;padding:4px 10px;cursor:pointer}
 td.check,th.check{width:42px;text-align:center}
+td.share input{width:72px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;font:inherit;font-size:13px;text-align:center}
+td.share input:disabled{background:#f3f4f7;color:#98a2b3}
 tr.on{background:#f4f7fb}
 .subs button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
 #pickprint{display:none}
@@ -337,6 +339,7 @@ let lookup = "";
 let picked = [];
 let chosen = new Set();
 let addPct = "";
+let linePct = {};
 
 function setMain(name){
   main = name;
@@ -544,17 +547,27 @@ function pctNumber(){
   const n = Number(toWestern(addPct).replace("،",".").replace(/[^\d.-]/g,""));
   return Number.isFinite(n) ? n : 0;
 }
+function linePctNumber(i){
+  const raw = linePct[i];
+  if(raw==null || String(raw).trim()==="") return 100;
+  const n = Number(toWestern(raw).replace("،",".").replace(/[^\d.-]/g,""));
+  return Number.isFinite(n) ? n : 0;
+}
+function lineShare(l, i){
+  return Math.round(l.amount * linePctNumber(i) / 100);
+}
 function chosenRows(){
   return [...chosen].filter(i=>LINES[i] && picked.includes(LINES[i].kashf))
     .sort((a,b)=>LINES[a].kashf-LINES[b].kashf || String(LINES[a].date).localeCompare(String(LINES[b].date)) || a-b)
-    .map(i=>({l:LINES[i], i}));
+    .map(i=>({l:LINES[i], i, pct:linePctNumber(i), share:lineShare(LINES[i], i)}));
 }
 function pickMath(){
   const rows = chosenRows();
-  const base = rows.reduce((a,x)=>a+x.l.amount,0);
+  const face = rows.reduce((a,x)=>a+x.l.amount,0);
+  const base = rows.reduce((a,x)=>a+x.share,0);
   const pct = pctNumber();
   const extra = Math.round(base * pct / 100);
-  return {rows, base, pct, extra, total: base + extra};
+  return {rows, face, base, pct, extra, total: base + extra};
 }
 function refreshPickSum(){
   const box = document.getElementById("pickSum");
@@ -563,25 +576,34 @@ function refreshPickSum(){
   const m = pickMath();
   if(btn) btn.disabled = !m.rows.length;
   if(!m.rows.length){
-    box.textContent = picked.length ? "لم يُحدَّد بند للطباعة" : "لم تُضف كشوف";
+    box.textContent = picked.length ? "لم يُحدَّد بند للدفعة" : "لم تُضف كشوف";
     return;
   }
+  const partial = m.base!==m.face ? ` · للدفع ${fmt(m.base)}` : "";
   const pct = m.pct ? ` + ${String(addPct).trim()}% (${fmt(m.extra)}) = ${fmt(m.total)}` : "";
-  box.textContent = `${m.rows.length} بند · ${fmt(m.base)} د.ع${pct}`;
+  box.textContent = `${m.rows.length} بند · ${fmt(m.face)} د.ع${partial}${pct}`;
+}
+function kashfMeta(n){
+  const rows = indexedLines(n);
+  const marked = rows.filter(x=>chosen.has(x.i));
+  const face = marked.reduce((a,x)=>a+x.l.amount,0);
+  const pay = marked.reduce((a,x)=>a+lineShare(x.l, x.i),0);
+  const partial = pay===face ? "" : ` · للدفع ${fmt(pay)}`;
+  return `${marked.length} من ${rows.length} بند · المحدد ${fmt(face)} من ${fmt(rows.reduce((a,x)=>a+x.l.amount,0))}${partial}`;
 }
 function kashfBlock(n){
   const rows = indexedLines(n);
-  const marked = rows.filter(x=>chosen.has(x.i));
-  const total = rows.reduce((a,x)=>a+x.l.amount,0);
-  const markedSum = marked.reduce((a,x)=>a+x.l.amount,0);
   const body = rows.map(x=>{
     const l = x.l;
     const on = chosen.has(x.i);
+    const pctVal = linePct[x.i]!=null ? linePct[x.i] : "100";
     return `<tr class="${on?"on":""}${l.amount<0?" neg":""}" data-line="${x.i}">
       <td class="check"><input type="checkbox" data-line="${x.i}" ${on?"checked":""} aria-label="تحديد البند"></td>
       <td>${esc(l.date||"—")}</td>
       <td>${esc(l.desc)}</td>
       <td class="num">${esc(money(l))}</td>
+      <td class="share"><input data-pct="${x.i}" inputmode="decimal" value="${esc(String(pctVal))}" ${on?"":"disabled"} aria-label="نسبة الدفع من قيمة البند"></td>
+      <td class="num" data-share="${x.i}">${on?fmt(lineShare(l, x.i)):"—"}</td>
       <td><span class="tag">${esc(l.cat)}</span></td>
       <td>${esc(topic(l))}</td>
       <td>${esc(where(l))}</td>
@@ -592,7 +614,7 @@ function kashfBlock(n){
     <div class="khead">
       <div>
         <div class="no">كشف ${n}</div>
-        <div class="meta" id="kc-${n}">${marked.length} من ${rows.length} بند · المحدد ${fmt(markedSum)} من ${fmt(total)}</div>
+        <div class="meta" id="kc-${n}">${kashfMeta(n)}</div>
       </div>
       <div class="ops">
         <button type="button" data-all="${n}">تحديد الكل</button>
@@ -601,7 +623,7 @@ function kashfBlock(n){
       </div>
     </div>
     <div class="scroll"><table>
-      <thead><tr><th class="check"></th><th>التاريخ</th><th>صيغة الصرف</th><th class="num">المبلغ</th><th>التصنيف</th><th>الفرعي</th><th>المكان</th><th>ملاحظة</th></tr></thead>
+      <thead><tr><th class="check"></th><th>التاريخ</th><th>صيغة الصرف</th><th class="num">المبلغ</th><th>نسبة الدفع %</th><th class="num">للدفع</th><th>التصنيف</th><th>الفرعي</th><th>المكان</th><th>ملاحظة</th></tr></thead>
       <tbody>${body}</tbody>
     </table></div>
   </section>`;
@@ -612,29 +634,32 @@ function pickDocument(){
   m.rows.forEach(x=>{
     let g = groups.find(g=>g.n===x.l.kashf);
     if(!g){ g = {n:x.l.kashf, rows:[]}; groups.push(g); }
-    g.rows.push(x.l);
+    g.rows.push(x);
   });
   const blocks = groups.map(g=>{
-    const sub = g.rows.reduce((a,l)=>a+l.amount,0);
-    const body = g.rows.map(l=>`<tr class="${l.amount<0?"neg":""}">
-      <td>${esc(l.date||"—")}</td><td>${esc(l.desc)}</td><td>${esc(l.cat)}</td><td>${esc(topic(l))}</td><td class="num">${esc(money(l))}</td>
+    const face = g.rows.reduce((a,x)=>a+x.l.amount,0);
+    const sub = g.rows.reduce((a,x)=>a+x.share,0);
+    const body = g.rows.map(x=>`<tr class="${x.l.amount<0?"neg":""}">
+      <td>${esc(x.l.date||"—")}</td><td>${esc(x.l.desc)}</td><td>${esc(x.l.cat)}</td>
+      <td class="num">${esc(money(x.l))}</td><td class="num">${esc(String(x.pct))}%</td><td class="num">${fmt(x.share)}</td>
     </tr>`).join("");
     return `<h2>كشف ${g.n}</h2>
-      <table><thead><tr><th>التاريخ</th><th>صيغة الصرف</th><th>التصنيف</th><th>الفرعي</th><th class="num">المبلغ</th></tr></thead>
-      <tbody>${body}<tr><td colspan="4">مجموع المحدد من الكشف</td><td class="num">${fmt(sub)}</td></tr></tbody></table>`;
+      <table><thead><tr><th>التاريخ</th><th>صيغة الصرف</th><th>التصنيف</th><th class="num">المبلغ</th><th class="num">نسبة الدفع</th><th class="num">للدفع</th></tr></thead>
+      <tbody>${body}<tr><td colspan="3">مجموع الكشف</td><td class="num">${fmt(face)}</td><td></td><td class="num">${fmt(sub)}</td></tr></tbody></table>`;
   }).join("");
-  const pctRow = m.pct ? `<tr><td>نسبة ${esc(String(addPct).trim())}% على المحدد</td><td class="num">${fmt(m.extra)}</td></tr>
-      <tr><td>الإجمالي مع النسبة</td><td class="num">${fmt(m.total)}</td></tr>` : "";
-  const dollars = m.rows.some(x=>x.l.usd) ? `<p class="note">بنود الدولار محسوبة بسعر 1,500 دينار للدولار.</p>` : "";
+  const pctRow = m.pct ? `<tr><td>نسبة الإضافة ${esc(String(addPct).trim())}% على مجموع الدفع</td><td class="num">${fmt(m.extra)}</td></tr>
+      <tr><td>الإجمالي المطلوب</td><td class="num">${fmt(m.total)}</td></tr>` : `<tr><td>الإجمالي المطلوب</td><td class="num">${fmt(m.base)}</td></tr>`;
+  const dollars = m.rows.some(x=>x.l.usd) ? `<p class="note">بنود الدولار محسوبة بسعر 1,500 دينار للدولار، والنسبة تُؤخذ من هذا المبلغ.</p>` : "";
   return `<header class="letter">
       <div><div class="co">شركة النهج الرافدين</div><div class="sub">للمقاولات العامة · مشروع بناء دار زيونة</div></div>
-      <div class="docmeta"><b>مستخلص بنود محددة</b>الكشوف ${groups.map(g=>g.n).join(" ، ")}</div>
+      <div class="docmeta"><b>دفعة عن بنود محددة</b>الكشوف ${groups.map(g=>g.n).join(" ، ")}</div>
     </header>
     ${blocks}
-    <h2>المجموع</h2>
+    <h2>الدفعة</h2>
     <table><tbody>
       <tr><td>البنود المحددة</td><td class="num">${m.rows.length}</td></tr>
-      <tr><td>مجموع المحدد</td><td class="num">${fmt(m.base)}</td></tr>
+      <tr><td>مجموع قيم البنود</td><td class="num">${fmt(m.face)}</td></tr>
+      <tr><td>مجموع ما سيُدفع من البنود</td><td class="num">${fmt(m.base)}</td></tr>
       ${pctRow}
     </tbody></table>
     ${dollars}`;
@@ -644,7 +669,7 @@ function printPick(){
   if(!m.rows.length) return;
   const inner = pickDocument();
   const css = `@page{size:A4 portrait;margin:12mm}*{box-sizing:border-box}body{margin:0;font-family:"Cairo","Segoe UI",Tahoma,sans-serif;color:#1b2333;direction:rtl}h2{margin:14px 0 6px;font-size:15px;color:#1e2a5e;border-bottom:2px solid #1e2a5e}.letter{display:flex;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:3px solid #c9a227}.co{font-size:18px;font-weight:800;color:#1e2a5e}.sub,.note{color:#667085;font-size:12px}.docmeta{text-align:left;font-weight:700;color:#1e2a5e}.docmeta b{display:block;font-size:16px}table{width:100%;border-collapse:collapse;font-size:12px;margin:0 0 8px}th,td{padding:5px 7px;border-bottom:1px solid #e4e8f0;text-align:right;vertical-align:top}th{background:#eef2fb;color:#1e2a5e}td.num,th.num{direction:ltr;text-align:left;font-variant-numeric:tabular-nums;white-space:nowrap}tr.neg td.num{color:#9b2242}`;
-  const html = `<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>مستخلص بنود محددة</title><style>${css}</style></head><body>${inner}</body></html>`;
+  const html = `<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>دفعة عن بنود محددة</title><style>${css}</style></head><body>${inner}</body></html>`;
   const w = window.open("", "zayouna-pick");
   if(!w){
     document.getElementById("pickprint").innerHTML = `<style>${css}</style>${inner}`;
@@ -668,7 +693,7 @@ function renderKashf(){
   if(stat) stat.textContent = kashfIds().length+" كشف مصنّف · "+picked.length+" مضاف";
   let finder = "";
   if(!text && !picked.length){
-    finder = `<p class="note">اكتب رقماً أو عدة أرقام مثل 184 185، ثم أضف الكشف. بنوده تُحدَّد كلها، ويمكن إلغاء ما لا تريد طباعته.</p>`;
+    finder = `<p class="note">اكتب رقماً أو عدة أرقام مثل 184 185، ثم أضف الكشف. بنوده تُحدَّد كلها، ويمكن إلغاء ما لا يدخل الدفعة. نسبة البند هي الجزء الذي سيُدفع من قيمته.</p>`;
   }else if(text && !hits.length){
     finder = `<p class="note">لا كشف مصنّف بهذا الرقم.</p>`;
   }else if(hits.length){
@@ -685,13 +710,25 @@ function renderKashf(){
     if(!input) return;
     const i = Number(input.dataset.line);
     if(input.checked) chosen.add(i); else chosen.delete(i);
-    input.closest("tr").classList.toggle("on", input.checked);
+    const row = input.closest("tr");
+    row.classList.toggle("on", input.checked);
+    const pctInput = row.querySelector("input[data-pct]");
+    if(pctInput) pctInput.disabled = !input.checked;
+    const shareCell = row.querySelector("[data-share]");
+    if(shareCell) shareCell.textContent = input.checked ? fmt(lineShare(LINES[i], i)) : "—";
     const meta = document.getElementById("kc-"+LINES[i].kashf);
-    if(meta){
-      const rows = indexedLines(LINES[i].kashf);
-      const marked = rows.filter(x=>chosen.has(x.i));
-      meta.textContent = `${marked.length} من ${rows.length} بند · المحدد ${fmt(marked.reduce((a,x)=>a+x.l.amount,0))} من ${fmt(rows.reduce((a,x)=>a+x.l.amount,0))}`;
-    }
+    if(meta) meta.textContent = kashfMeta(LINES[i].kashf);
+    refreshPickSum();
+  };
+  box.oninput = (e)=>{
+    const input = e.target.closest("input[data-pct]");
+    if(!input) return;
+    const i = Number(input.dataset.pct);
+    linePct[i] = input.value;
+    const shareCell = input.closest("tr").querySelector("[data-share]");
+    if(shareCell && chosen.has(i)) shareCell.textContent = fmt(lineShare(LINES[i], i));
+    const meta = document.getElementById("kc-"+LINES[i].kashf);
+    if(meta) meta.textContent = kashfMeta(LINES[i].kashf);
     refreshPickSum();
   };
   box.onclick = (e)=>{
@@ -714,13 +751,13 @@ function renderKashf(){
 function kashfPage(){
   return `
     <h2>كشف</h2>
-    <p class="lead">أضف كشفاً أو أكثر. كل كشف يدخل بكل بنوده، ثم أزل علامة البند الذي لا تريده. النسبة تُضاف على مجموع المحدد وتُقرَّب لأقرب دينار، والطباعة تُخرج هذا المستخلص وحده.</p>
+    <p class="lead">أضف الكشوف واختر البنود التي تدخل الدفعة. نسبة البند هي الجزء الذي سيُدفع من قيمته، ثم تُضاف نسبة الإضافة على مجموع هذه الدفعات وتُقرَّب لأقرب دينار. الطباعة تُخرج هذه الدفعة وحدها.</p>
     <div class="tools">
       <input id="kashfNo" type="search" placeholder="رقم كشف أو أكثر، مثل 184 185" value="${esc(lookup)}" autocomplete="off">
       <div class="stat" id="countline"></div>
     </div>
     <div class="pickbar">
-      <label>نسبة تُضاف %<input id="addPct" inputmode="decimal" value="${esc(addPct)}" placeholder="10"></label>
+      <label>نسبة الإضافة %<input id="addPct" inputmode="decimal" value="${esc(addPct)}" placeholder="10"></label>
       <div class="stat" id="pickSum"></div>
       <button type="button" class="printbtn" id="btnPick">طباعة المحدد</button>
     </div>
